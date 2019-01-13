@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+int main(){
+    char tim[10];
+    cin>>tim;
+    if((tim[0]=='1')&&(tim[1]=='2')&&(tim[8]=='A'))
+       { 
+           tim[0] = '0';
+           tim[1] = '0';
+           for(int i=0; i<8; ++i)
+           cout<<tim[i];
+           cout<<endl;  }
+    else if((tim[0]=='1')&&(tim[1]=='2')&&(tim[8]=='P'))
+        {
+           for(int i=0; i<8; ++i)
+           cout<<tim[i];
+           cout<<endl; }
+    else if(tim[8]=='A')
+        {
+            for(int i=0; i<8; ++i)
+                cout<<tim[i];
+            cout<<endl;
+            
+        }
+    else if(tim[8]=='P')
+        {
+            int a1 = tim[0];
+            int a2 = tim[1];
+            a1 = a1-48;
+            a2=a2-48;
+            a1 = a1*10;
+            a1 = a1+a2;
+            a1 = a1+12;
+            cout<<a1;
+            for(int i=2; i<8; ++i)
+                cout<<tim[i];
+            cout<<endl;
+            
+        }
+    return 0;
+}
