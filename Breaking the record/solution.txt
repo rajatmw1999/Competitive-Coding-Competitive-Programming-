@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    long long sc[n];
+    for(int i=0; i<n; ++i)
+        cin>>sc[i];
+    int high=0,low=0;
+    long long sclow = sc[0];
+    long long schigh  = sc[0];
+    for(int i=0; i<n; ++i)
+    {
+        if(sc[i]>schigh)
+        {
+            ++high;
+            schigh = sc[i];
+        }
+        else if(sc[i]<sclow)
+        {
+            ++low;
+            sclow = sc[i];
+        }
+    }
+    cout<<high<<" "<<low;
+    return 0;
+}
