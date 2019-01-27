@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+long front(long n,long page){
+     if(page%2==0)
+     {
+         page = page/2;
+     }
+     else if(page%2!=0)
+     {
+         page=(page-1)/2;
+     }
+     return page;
+}
+long back(long n,long page)
+{
+    if(n%2==0)
+    {
+        if(page%2==0)
+            {
+                page  = (n-page)/2;
+                
+            }
+        else
+        {
+            page = (n-page+1)/2;
+        
+        }
+    }
+    else{
+        if(page%2==0)
+        {
+            page  = (n-page)/2;
+            
+        }
+        else{
+            page = (n-page)/2;
+        
+        }
+    }
+    return page;
+}
+int main(){
+    long n, page;
+    cin>>n>>page;
+    long f1 = front(n,page);
+    long b1 = back(n,page);
+    if(f1>=b1)
+        cout<<b1;
+    else
+        cout<<f1;
+    return 0;
+}
+
