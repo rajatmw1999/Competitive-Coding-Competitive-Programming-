@@ -1,0 +1,35 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    long n,q;
+    cin>>n>>q;
+    long k;
+    long no;
+    vector<int> vec[n];
+    for(int j=0; j<n; ++j){
+        cin>>k;
+    for(int i=0; i<k; ++i)
+    {
+        cin>>no;
+        vec[j].push_back(no);
+    }
+    }
+    long quei[q],quej[q];
+    for(int i=0; i<q; ++i)
+        cin>>quei[i]>>quej[i];
+    
+    for(int i=0; i<q; ++i)
+    {
+        int qi = quei[i];
+        int qj = quej[i];
+        cout<<vec[qi].at(qj)<<endl;
+    }
+    return 0;
+}
+
