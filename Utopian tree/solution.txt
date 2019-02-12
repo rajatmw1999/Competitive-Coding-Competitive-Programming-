@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    long tc;
+    cin>>tc;
+    long cycles[tc];
+    for(int i=0; i<tc; ++i)
+        cin>>cycles[i];
+    long height = 1;
+    int plus=0,doubl=1;
+    for(int i=0; i<tc; ++i)
+    {
+        doubl=1;
+            plus=0;
+             height=1;
+        for(int j=0; j<cycles[i]; ++j)
+        {
+           
+            if((doubl==1)&&(plus==0))
+                {height=height*2;
+                plus=1;
+                doubl=0;
+                }
+            else if((doubl==0)&&(plus==1))
+                {height+=1;
+                plus=0;
+                doubl=1;
+                }
+        }
+        cout<<height<<endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,29 @@
+import java.util.*;
+import java.io.*;
+import java.lang.Math.*;
+
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(int i=0;i<t;i++){
+            int limit = 0;
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+        for(int j=0; j<n; ++j)
+        {   int sum=0;
+           for(double k=0; k<=limit; ++k)
+           {
+            double power = java.lang.Math.pow(2.0,k);
+               sum+=b*power;
+           }
+           sum+=a;
+           System.out.printf(sum + " ");
+           ++limit;
+        }
+        System.out.printf("\n");
+    }
+    in.close();
+}}
+
