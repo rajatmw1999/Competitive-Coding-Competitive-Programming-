@@ -1,0 +1,40 @@
+#include<iostream>
+#include <vector>
+using namespace std;
+long reverse(long repli)
+{
+    long rev=0;
+    vector<long> dig;
+    while(repli!=0){
+        long digit = repli%10;
+        dig.push_back(digit);
+        repli = ((repli - digit)/10);
+    }
+    long mul=1;
+    for(int i=0; i<dig.size(); ++i)
+    { 
+        mul=dig[i];
+        for(int j=(dig.size()-1-i); j>0; --j)
+            {
+                mul*=10;
+            }
+        rev+=mul;
+    }
+    return rev;
+}
+int main()
+{
+    long cnt=0;
+    long start,end,no;
+    cin>>start>>end>>no;
+    for(long i=start; i<=end; ++i)
+    {
+        long check = reverse(i) - i;
+        if(check<0)
+            check*=(-1);
+        if((check%no)==0)
+            ++cnt;
+    }
+    cout<<cnt;
+    return 0;
+}
