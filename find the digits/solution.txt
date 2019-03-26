@@ -1,0 +1,30 @@
+#include<iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+    int n;
+    cin >> n;
+    int repli = n;
+    int sum=0;
+    vector<int> dig;
+    while(n>0)
+    {
+        int digit = n%10;
+        n = (n - digit)/10;
+        dig.push_back(digit);
+    }
+
+    for(int i=0; i<dig.size(); ++i)
+    {
+        if(dig[i]!=0)
+        if(repli%dig[i]==0)
+            sum++;
+    }
+        cout << sum << "\n";
+    }
+    return 0;
+}
