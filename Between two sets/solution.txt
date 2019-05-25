@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int m, n;
+  cin >> m >> n;
+  int a[m], b[n];
+
+  int even = 0;
+
+  for (int i = 0; i < m; ++i) {
+    cin >> a[i];
+  }
+
+  for (int i = 0; i < n; ++i) {
+    cin >> b[i];
+  }
+
+  int high = a[0];
+  for (int i = 1; i < m; ++i) {
+    if (a[i] > high)
+      high = a[i];
+  }
+
+  int cnt = 0; // to store the answer
+
+  int low = b[0];
+  for (int i = 1; i < n; ++i) {
+    if (b[i] < low)
+      low = b[i];
+  }
+
+  // cout<<high<<endl<<low;
+
+  int flag_a = 1, flag_b = 1;
+
+  for (int i = high; i <= low; ++i) // there may be error here... "<="
+  {
+    for (int j = 0; j < m; ++j) {
+      if (i % a[j] != 0) {
+        flag_a = 0;
+        break;
+      }
+    }
+
+    if (flag_a != 0) {
+      for (int j = 0; j < n; ++j) {
+        if (b[j] % i != 0) {
+          flag_b = 0;
+          break;
+        }
+      }
+    }
+
+    if ((flag_a == 1) && (flag_b == 1))
+      ++cnt;
+
+    flag_a = 1;
+    flag_b = 1;
+  }
+
+  cout << cnt;
+  return 0;
+}
