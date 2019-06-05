@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long n;
+    cin>>n;
+    long ar[n];
+    for(long i=0; i<n; ++i)
+        cin>>ar[i];
+    long cnt[10000];
+
+    for(long i=0; i<10000; ++i)
+        cnt[i]=0;
+
+    for(long i=0; i<n; ++i)
+    {
+        cnt[ar[i]] += 1;
+    }
+    
+    long great = cnt[0];
+    long pos = 0;
+
+    for(long i=0; i<10000; ++i)
+    {
+        if(cnt[i]>great)
+            {
+                great=cnt[i];
+                pos = i;
+            }
+    }
+    long sum = 0;
+    for(long i=0; i<10000; ++i)
+    {
+        if(i!=pos)
+            sum+=cnt[i];
+    }
+    cout<<sum;
+   return 0;
+}
