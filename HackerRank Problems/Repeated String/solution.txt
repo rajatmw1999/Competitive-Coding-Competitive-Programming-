@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+    char str[10000];
+    long n;
+    cin>>str>>n;
+
+    long cntonce = 0;
+
+    long len =strlen(str);
+
+    for (long i = 0; i < len; ++i)
+      if(str[i]=='a')
+        ++cntonce;
+
+    long totaliter = n/len;
+
+    long cnt = totaliter*cntonce;
+
+    long left = n - (totaliter*len);
+
+    for(long i=0; i<left; ++i)
+        if(str[i]=='a')
+            ++cnt;
+    cout<<cnt;
+    return 0;
+}
