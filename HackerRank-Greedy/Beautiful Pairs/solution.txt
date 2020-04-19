@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long long int n;
+    cin>>n;
+    long long int a[n],b[n],k;
+    k=0;
+    for(long long int i=0; i<n; ++i)
+        cin>>a[i];
+    for(long long int i=0; i<n; ++i)
+        cin>>b[i];
+    for(long long int i=0; i<n; ++i){
+        if(a[i]!=999999){
+            for(long long int j=0; j<n; ++j){
+                if((a[i]==b[j])&&(b[j]!=999999)){
+                    ++k;
+                    a[i]=999999;
+                    b[j]=999999;
+                    break;
+                }
+            }
+        }
+    }
+    if(k<n)
+        ++k;
+    else if (k==n)
+    --k;
+        cout<<k;
+    return 0;
+}

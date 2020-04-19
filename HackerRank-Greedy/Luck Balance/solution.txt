@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    long int li[n];
+    int ti[n];
+    int cnt=0;
+    for(int i=0; i<n; ++i){
+        cin>>li[i]>>ti[i];
+        if(ti[i]==1)
+            ++cnt;
+    }
+    cnt = cnt - k;
+    int tminus=0;
+    long int small = 999999;
+    while(cnt>0){
+    small=999999;
+    int index=0;
+    for(int i=0; i<n; ++i){
+        if(ti[i]==1){
+            if((li[i]<small)&&(li[i]!=0))
+              {
+                 small=li[i];
+                 index = i;
+              }
+        }
+    }
+    tminus+=small;
+    li[index]=0;
+    --cnt;
+    }
+    long long int sum = 0;
+    for(int i=0; i<n; ++i){
+            sum+=li[i];
+    }
+    sum=sum-tminus;
+cout<<sum;
+    return 0;
+}

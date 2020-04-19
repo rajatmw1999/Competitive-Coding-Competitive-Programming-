@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int q;
+    cin>>q;
+    long long int siz,k;
+    for(int i=0; i<q; ++i){
+        int done=0;
+        cin>>siz>>k;
+        long long int a[siz],b[siz];
+        for(int j=0; j<siz; ++j)
+            cin>>a[j];
+        for(int j=0; j<siz; ++j)
+            cin>>b[j];
+        sort(a,a+siz);
+        sort(b,b+siz);
+        for(int j=0,l=siz-1; j<siz; ++j,--l){
+            if((a[j]+b[l])<k)
+            {
+                cout<<"NO\n";
+                done=1;
+                break;
+            }
+        }
+        if(done==0)
+        cout<<"YES\n";
+    }
+    
+    return 0;
+}
